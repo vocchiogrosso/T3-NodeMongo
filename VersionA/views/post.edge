@@ -1,0 +1,13 @@
+@layout('layouts.app')
+
+@section('content')
+
+<h1 class="post-heading"> {{ post.title }}</h1>
+<h2 class="subheading"> {{ post.subtitle}}</h2>
+<h5> {{ post.username}}</h5>
+<h5> {{ post.createdAt.toDateString()}}
+<hr>
+<img src="{{ post.image }}"/>
+<p> {{ post.contents }} </p>
+
+@endsection
