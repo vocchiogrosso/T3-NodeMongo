@@ -21,6 +21,14 @@ app.set('views', `${__dirname}/views`)
 app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({ extended: true}))
+/*| Custom Middleware |*/
+
+const customMiddleware = (req, res, next) => {
+    console.log('I HAVE BEEN CALLED');
+    next();
+}
+
+app.use(customMiddleware)
 
 /*||*/
 

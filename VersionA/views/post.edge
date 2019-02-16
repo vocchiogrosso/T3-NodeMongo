@@ -7,7 +7,7 @@
 <h5> {{ post.username}}</h5>
 <h5> {{ post.createdAt.toDateString()}}
 <hr>
-<img src="{{ post.image }}"/>
+<img style="background-image: url('{{ post.image }}')"/>
 <p> {{ post.contents }} </p>
 
 @endsection
