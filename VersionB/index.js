@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const expressSession = require('express-session');
 const connectMongo = require('connect-mongo');
+const connectFlash = require('connect-flash');
 
 // Post Controllers
 const createPostController = require('./controllers/createPost')
@@ -22,6 +23,8 @@ const loginUserController = require('./controllers/loginUser')
 const app = new express();
 
 const mongoStore = connectMongo(expressSession);
+
+app.use(connectFlash())
 
 app.use(expressSession({
   secret: 'secret',
@@ -62,6 +65,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
     app.post('/users/register',storeUserController);
     app.post('/users/login', loginUserController)
+
+// Other
+
+  const copyright = "Hackers Alliance 2019";
 
 // Run On Port
 app.listen(4000, () => {
