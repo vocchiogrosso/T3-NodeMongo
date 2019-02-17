@@ -73,11 +73,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
     app.get('/auth/register',redirectIfAuthenticated, createUserController);
     app.get('/auth/login', redirectIfAuthenticated, loginController);
-    app.get('/auth/logout', redirectIfAuthenticated, logoutController);
+    app.get('/auth/logout', auth, logoutController);
 
     app.post('/users/register', redirectIfAuthenticated, storeUserController);
     app.post('/users/login', redirectIfAuthenticated, loginUserController)
 
+    app.use((req,res) => res.render('not-found'));
+    
 // Other
 
   const copyright = "Hackers Alliance 2019";
