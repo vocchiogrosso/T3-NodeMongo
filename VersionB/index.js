@@ -15,7 +15,7 @@ const getPostController = require('./controllers/getPost')
 const app = new express();
 mongoose.connect("mongodb://localhost/node-js-blog");
 
-  // 
+  // Locations
 app.use(fileUpload());
 app.use(express.static("public"));
 app.use(expressEdge);
